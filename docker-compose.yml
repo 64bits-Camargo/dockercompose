@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  web:
+    image: php:7.2.2-apache
+    links:
+      - db
+    volumes:
+      - ./www/:/var/www/html
+    ports:
+      - 80:80
+      - 443:443
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=myrootpass
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER= dev
+      - MYSQL_PASSWORD= senha
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    ports:
+      - 8181:80
