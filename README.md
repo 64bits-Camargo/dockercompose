@@ -7,9 +7,9 @@
   <li>phpmyadmin</li>
 </ul>
 
-<b>Instalando mysqli extension para php</b>
+<b>Instalando mysqli extension</b>
 <pre>
- docker exec -ti <your-php-container> sh
+docker exec -ti "<your-php-container>" sh
 >> docker-php-ext-install mysqli 
 >> docker-php-ext-enable mysqli
 >> apachectl restart
